@@ -24,3 +24,28 @@
       },
 ```
 或许是我记错了，当使用到node-sass时才需要针对版本严格要求。
+
+- file-loader  
+使用图片音频等静态资源时，也需要配置loader。在webpack.rules添加对应配置即可。先要按照，可用。  
+```
+{
+  test: /\.(png|jpg|gif)$/i,
+  use: [
+    // 要选择对应的loader
+    {
+      // url是将图像转成base64
+      loader: 'url-loader',
+      // file是将图像打包发送过去
+      // loader: 'file-loader',
+    },
+  ],
+},
+```
+要配置当文件大于多少MB时，才转base64，也是在此处配置。   
+在引入UI框架之前还有一步，就是为各种字体文件添加配置。因为各个UI框架他们自带了一下后缀为ttf的文字文件。需要webpack识别并打包。
+```
+{
+  test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+  use: [ {loader: 'file-loader'} ]
+},
+```

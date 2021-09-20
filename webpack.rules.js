@@ -32,7 +32,7 @@ module.exports = [
     loader: 'vue-loader'
   },
   // vue end
-  
+
   {
     // 处理预编译的css
     // 处理sass
@@ -44,6 +44,20 @@ module.exports = [
       "css-loader",
       // 将 Sass 编译成 CSS
       "sass-loader",
+    ],
+  },
+
+  {
+    test: /\.(png|jpg|gif)$/i,
+    use: [
+      // 要选择对应的loader
+      {
+        // url是将图像转成base64
+        loader: 'url-loader',
+        // file是将图像打包发送过去
+        // loader: 'file-loader',
+
+      },
     ],
   },
 

@@ -31,7 +31,7 @@
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
 
 import Vue from "vue";
-console.log(Vue)
+
 import appVue from "./renderer/app.vue"
 
 new Vue({
