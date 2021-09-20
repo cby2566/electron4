@@ -13,8 +13,7 @@
   },
   "keywords": [],
   "author": {
-    "name": "cby2566",
-    "email": "870017005@qq.com"
+    "name": "Mr.Chen"
   },
   "license": "MIT",
   "config": {
@@ -24,7 +23,10 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "electron4"
+            "name": "electron4",
+            "noMsi": "false",
+            "noDelta": "false",
+            "loadingGif": "zhu.gif"
           }
         },
         {
