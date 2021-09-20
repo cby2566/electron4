@@ -26,13 +26,19 @@
  * ```
  */
 
-// import './index.css';
+import './index.css';
+// import './renderer/resources/test.scss';
 
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
 
 import Vue from "vue";
+import ElementUI from 'element-ui';
+// import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
 
 import appVue from "./renderer/app.vue"
+
+
 
 new Vue({
   render: h => h(appVue),

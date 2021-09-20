@@ -8,10 +8,14 @@
     <div>
       <img :src="imgs2" alt="" srcset="" class="img3" />
     </div>
+    <div>
+      <el-button>默认按钮</el-button>
+    </div>
   </div>
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -26,6 +30,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import 'element-ui/lib/theme-chalk/index.css';
 $mColor: blue;
 .main1 {
   color: $mColor;

@@ -25,7 +25,7 @@ module.exports = [
   // 引入vue单文件
   {
     test: /\.css$/,
-    use: ["style-loader", 'vue-style-loader', 'css-loader']
+    use: ["style-loader", 'css-loader', 'vue-style-loader'],
   },
   {
     test: /\.vue$/,
@@ -59,6 +59,10 @@ module.exports = [
 
       },
     ],
+  },
+  {
+    test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+    use: [ {loader: 'file-loader'} ]
   },
 
   // Put your webpack loader rules in this array.  This is where you would put

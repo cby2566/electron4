@@ -49,3 +49,27 @@
   use: [ {loader: 'file-loader'} ]
 },
 ```
+
+
+- element-ui  
+在渲染函数中引入他的css报错，暂无法解决
+```
+import 'element-ui/lib/theme-chalk/index.css';
+
+///
+Electron Forge was terminated:
+ModuleBuildError: Module build failed (from ./node_modules/css-loader/dist/cjs.js):
+CssSyntaxError
+
+(1:4) E:\work_work\project3\electron4\src\index.css Unknown word
+
+> 1 | // style-loader: Adds some css to the DOM by adding a <style> tag
+    |    ^
+  2 |
+  3 | // load the styles
+```
+但我发现scss格式 是可以引入的。所以我就用这种方式先引入element了
+```
+<style lang="scss" scoped>
+@import 'element-ui/lib/theme-chalk/index.css';
+```
