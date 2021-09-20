@@ -33,7 +33,7 @@ console.log('👋 This message is being logged by "renderer.js", included via we
 
 import Vue from "vue";
 import ElementUI from 'element-ui';
-// import 'element-ui/lib/theme-chalk/index.css';
+import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
 import appVue from "./renderer/app.vue"

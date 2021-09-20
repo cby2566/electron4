@@ -23,10 +23,10 @@ module.exports = [
     exclude: /node_modules/
   },
   // 引入vue单文件
-  {
-    test: /\.css$/,
-    use: ["style-loader", 'css-loader', 'vue-style-loader'],
-  },
+  // {
+  //   test: /\.css$/,
+  //   use: ["style-loader", 'css-loader', 'vue-style-loader'],
+  // },
   {
     test: /\.vue$/,
     loader: 'vue-loader'

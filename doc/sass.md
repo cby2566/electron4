@@ -73,3 +73,14 @@ CssSyntaxError
 <style lang="scss" scoped>
 @import 'element-ui/lib/theme-chalk/index.css';
 ```
+~~暂无法解决~~ 已解决。   
+我搜索了半天没有找到对应的结果，然而吃了个宵夜就灵感来了。   
+之所以， css老是加载不到，是因为画蛇添足的加了这一块。将其注释了，就完美解决。   
+```
+{
+  test: /\.css$/,
+  use: ["style-loader", 'css-loader', 'vue-style-loader'],
+},
+```
+我分析原因，推测是 使用 `npx create-electron-app my-new-app --template=webpack` 构建的模板，集成了css loader相关内容。
+如再在配置中加上面那段代码，则会导致引入复数标签所以报错。

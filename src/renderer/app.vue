@@ -2,13 +2,6 @@
   <div class="main1">
     <span>{{ msg }}</span>
     <div>
-      <img :src="imgs" alt="" srcset="" class="img3" />
-    </div>
-    <div class="bg1"></div>
-    <div>
-      <img :src="imgs2" alt="" srcset="" class="img3" />
-    </div>
-    <div>
       <el-button>默认按钮</el-button>
     </div>
   </div>
@@ -30,11 +23,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import 'element-ui/lib/theme-chalk/index.css';
 $mColor: blue;
 .main1 {
   color: $mColor;
-  display: flex;
+  // display: flex;
 }
 .img3 {
   width: 300px;
