@@ -78,6 +78,8 @@
     "css-loader": "^5.0.2",
     "electron": "14.0.1",
     "node-loader": "^2.0.0",
+    "sass": "^1.41.1",
+    "sass-loader": "^12.1.0",
     "style-loader": "^3.0.0",
     "vue-loader": "^15.9.8",
     "vue-style-loader": "^4.1.3",

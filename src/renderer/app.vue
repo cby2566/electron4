@@ -1,6 +1,7 @@
 <template>
   <div>
-    {{ msg }}
+    <span>{{ msg }}</span>
+    <!-- <img src="../ponychart.jpg" alt="" srcset=""> -->
   </div>
 </template>
 
@@ -13,8 +14,9 @@ export default {
   },
 };
 </script>
-<style>
-div {
-  color: red;
+<style lang="scss" scoped>
+$mColor: blue;
+div{
+  color: $mColor;
 }
 </style>
