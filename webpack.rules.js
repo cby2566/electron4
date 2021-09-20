@@ -16,6 +16,23 @@ module.exports = [
       },
     },
   },
+  // es6转义
+  {
+    test: /\.js$/,
+    use: 'babel-loader',
+    exclude: /node_modules/
+  },
+  // 引入vue单文件
+  {
+    test: /\.css$/,
+    use: ["style-loader", 'vue-style-loader', 'css-loader']
+  },
+  {
+    test: /\.vue$/,
+    loader: 'vue-loader'
+  }
+  // vue end
+
   // Put your webpack loader rules in this array.  This is where you would put
   // your ts-loader configuration for instance:
   /**
