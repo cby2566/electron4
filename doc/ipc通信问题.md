@@ -1,4 +1,4 @@
-遇到棘手的问题，webpack 5.0剥离了node核心包，导致electron的ipc通信无法使用，暂未找到解决方案。
+~~遇到棘手的问题，webpack 5.0剥离了node核心包，导致electron的ipc通信无法使用，暂未找到解决方案。~~
 
 
 已找到解决方案。以下记录排查过程。    
@@ -153,3 +153,16 @@ console.log(window.myAPI)
 
 到这里，茅塞顿开意识到最开始或许并不是 webpack 5 导致问题的最根本的原因，而且新版 `electron` 隔离的上下文的策略导致的。   
 遂切换到`electron-forge`项目实践想法，成功。
+
+
+
+
+
+---
+
+ipcRenderer.on
+
+https://stackoverflow.com/questions/66913598/ipcrenderer-on-is-not-a-function
+
+https://stackoverflow.com/questions/59993468/electron-contextbridge
+
