@@ -38,7 +38,15 @@ Vue.use(ElementUI);
 
 import appVue from "./renderer/app.vue"
 
-
+// const electron = require('electron')
+// import electron from 'electron'
+// const ipcRenderer = electron.ipcRenderer;
+// console.log('ipcRenderer', electron)
+console.log(window.myAPI)
+window.myAPI.ipcRenderer.send('ping', 'test')
+window.myAPI.on('ping-res', function(event, message){
+  console.log('收到:', message)
+})
 
 new Vue({
   render: h => h(appVue),

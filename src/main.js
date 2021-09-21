@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -11,6 +11,14 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      plugins: true,
+      javascript: true,
+      webSecurity: false,
+      contextBridge: true,
+      preload: path.join(__dirname, './test.js')
+    }
   });
 
   // and load the index.html of the app.
@@ -18,6 +26,7 @@ const createWindow = () => {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
+  return mainWindow
 };
 
 // This method will be called when Electron has finished
@@ -44,3 +53,13 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+ipcMain.on('ping', (event, args) => {
+  console.log('ping', args)
+  // app.webContents.send('ping-res', '答复')
+  event.reply('ping-res', '答复')
+})
+
+ipcMain.handle('some-name', (event, someArgument) => {
+  console.log(2222,someArgument)
+  return '主程序值test'
+})
