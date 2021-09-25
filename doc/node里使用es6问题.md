@@ -20,3 +20,34 @@ https://www.cnblogs.com/tw6668/p/11684441.html
 
 - 收到思路   
 和运行中的@babel-runtime 配置没有关系，就是千万千万不要用babel转义主进程中需要使用的js代码。
+当我去排查与搜索node中如何转换ES6语法的时候，在 https://webpack.docschina.org/loaders/babel-loader/ 文档。
+其中有一段：
+```
+// 排除不应参与转码的库
+// core-js 和 webpack/buildin 如果被 Babel 转码会发生错误。
+// 你需要在 babel-loader 中排除它们：
+{
+  "loader": "babel-loader",
+  "options": {
+    "exclude": [
+      // \\ for Windows, \/ for Mac OS and Linux
+      /node_modules[\\\/]core-js/,
+      /node_modules[\\\/]webpack[\\\/]buildin/,
+    ],
+    "presets": [
+      "@babel/preset-env"
+    ]
+  
+```
+我意识到是不是nodejs不需要转换，强行去转义反而会报错，我尝试排除使用了ES6语法的node模块，结果成功启动。
+```
+{
+    test: /\.js$/,
+    use: 'babel-loader',
+    exclude: [
+      /node_modules/,
+      /src[\\\/]main/,
+      /src[\\\/]main.js/
+    ]
+}
+```

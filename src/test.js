@@ -5,4 +5,8 @@ contextBridge.exposeInMainWorld('myAPI', {
   desktop: true, ipcRenderer, on(eventName, callback) {
     ipcRenderer.on(eventName, callback)
   },
+  removeAllListeners(channel) {
+    ipcRenderer.removeAllListeners(channel)
+  },
+  
 })

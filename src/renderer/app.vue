@@ -44,6 +44,22 @@ export default {
   },
   created() {
     // console.log("imgs", this.imgs);
+    window.myAPI.on('allSelect-res', (event, message) => {
+      console.log('收到表数据:', message)
+      let json = JSON.parse(message);
+      let dataList = []
+      for(let item of json){
+        dataList.push({
+          date: "2016-05-03",
+          name: item.id,
+          address: item.name,
+        })
+      }
+      this.tableData = dataList
+    })
+  },
+  destroyed() {
+    window.myAPI.removeAllListeners()
   },
   methods: {
     sendMsg(){
@@ -55,7 +71,7 @@ export default {
       })
     },
     sendMsg2(){
-      
+      window.myAPI.ipcRenderer.send('allSelect2', 'test礼拜3')
     }
   }
 };

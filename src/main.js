@@ -1,6 +1,8 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
+const sqlTode = require('./main/sqlTode.js');
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
   app.quit();
@@ -60,6 +62,27 @@ ipcMain.on('ping', (event, args) => {
 })
 
 ipcMain.handle('some-name', (event, someArgument) => {
-  console.log(2222,someArgument)
+  console.log(2222, someArgument)
   return '主程序值test'
 })
+
+ipcMain.on('allSelect', function (event, arg) {
+  console.log('allSelect')
+  // 这里传表名
+  let result = sqlTode.allSelect('old_table')
+  console.log('result：');
+  result.then((res) => {
+    console.log(typeof res)
+    console.log(res);
+    event.reply('allSelect-res', JSON.stringify(res))
+  })
+});
+
+ipcMain.on('allSelect2', async function  (event, arg) {
+  console.log('allSelect2')
+  // 这里传表名
+  let result = await sqlTode.allSelect('old_table')
+  console.log(result)
+  event.reply('allSelect-res', JSON.stringify(result))
+});
+
