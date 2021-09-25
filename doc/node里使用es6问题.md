@@ -17,3 +17,6 @@ https://www.cnblogs.com/tw6668/p/11684441.html
 ```
 然后@babel/core又无法指定版本安装。   
 暂无思路，遂手动删除所有async/await代码，改为promise形式。
+
+- 收到思路   
+和运行中的@babel-runtime 配置没有关系，就是千万千万不要用babel转义主进程中需要使用的js代码。

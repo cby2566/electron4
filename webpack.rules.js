@@ -20,7 +20,11 @@ module.exports = [
   {
     test: /\.js$/,
     use: 'babel-loader',
-    exclude: /node_modules/
+    exclude: [
+      /node_modules/,
+      /src[\\\/]main/,
+      /src[\\\/]main.js/
+    ]
   },
   // 引入vue单文件
   // {
